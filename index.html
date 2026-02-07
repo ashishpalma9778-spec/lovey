@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>🌷</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:grid;
+place-items:center;
+overflow:hidden;
+font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+
+background:
+radial-gradient(circle at 15% 15%, #ffe3f1 0%, transparent 45%),
+radial-gradient(circle at 85% 20%, #e9ddff 0%, transparent 45%),
+radial-gradient(circle at 20% 85%, #fff2dc 0%, transparent 55%),
+radial-gradient(circle at 80% 80%, #ffd6e8 0%, transparent 55%),
+linear-gradient(180deg, #fff8fd 0%, #f7f1ff 55%, #fff4ea 100%);
+}
+
+.blob{
+position:absolute;
+width:560px;
+height:560px;
+border-radius:999px;
+filter: blur(90px);
+opacity:0.35;
+animation: blobMove 10s ease-in-out infinite;
+z-index:0;
+}
+.b1{ background:#ff7bbd; top:-240px; left:-240px; }
+.b2{ background:#cdb4ff; bottom:-270px; right:-270px; animation-delay:2s; }
+.b3{ background:#ffd6a5; top:60px; right:-290px; animation-delay:4s; }
+
+@keyframes blobMove{
+0%,100%{ transform: translate(0,0) scale(1); }
+50%{ transform: translate(45px,-35px) scale(1.1); }
+}
+
+.card{
+position:relative;
+width:min(720px, 92vw);
+padding:30px 22px 28px;
+border-radius:32px;
+text-align:center;
+z-index:2;
+
+background: rgba(255,255,255,0.68);
+border: 1px solid rgba(255, 90, 170, 0.18);
+backdrop-filter: blur(16px);
+box-shadow: 0 22px 70px rgba(0,0,0,0.12);
+}
+
+.title{
+margin:0;
+font-family: "Pacifico", cursive;
+font-size: 28px;
+color: rgba(60, 10, 35, 0.92);
+}
+
+.sub{
+margin-top:8px;
+font-size:14px;
+font-weight:700;
+color: rgba(80, 25, 55, 0.62);
+}
+
+/* Tulip */
+.tulip-wrap{
+width:260px;
+height:330px;
+margin:18px auto 0;
+position:relative;
+opacity:0;
+animation: popIn 1.2s ease forwards;
+}
+
+@keyframes popIn{
+0%{ transform: translateY(18px) scale(0.96); opacity:0; }
+100%{ transform: translateY(0) scale(1); opacity:1; }
+}
+
+/* glow burst on YES */
+.tulip-glow {
+animation: yesGlow 1.2s ease forwards;
+}
+
+@keyframes yesGlow {
+0% { filter: drop-shadow(0 0 0 rgba(255, 100, 170, 0)); transform: scale(1); }
+40% { filter: drop-shadow(0 18px 26px rgba(255, 100, 170, 0.25)); transform: scale(1.03); }
+100% { filter: drop-shadow(0 10px 18px rgba(255, 100, 170, 0.18)); transform: scale(1); }
+}
+
+.stem{
+position:absolute;
+left:50%;
+bottom:0;
+width:12px;
+height:190px;
+transform:translateX(-50%);
+border-radius:999px;
+background: linear-gradient(#42ff9f, #0a7a38);
+transform-origin: bottom center;
+animation: sway 4.4s ease-in-out infinite;
+box-shadow: 0 0 24px rgba(60, 255, 170, 0.15);
+}
+
+.leaf{
+position:absolute;
+width:120px;
+height:70px;
+background: linear-gradient(135deg, #48ffad, #0a7a38);
+border-radius: 120px 120px 120px 0;
+filter: drop-shadow(0 10px 14px rgba(0,0,0,0.10));
+transform-origin: 20% 80%;
+animation: leafWave 3.8s ease-in-out infinite;
+}
+
+.leaf.left{
+left:22px;
+bottom:88px;
+transform: rotate(-25deg);
+}
+
+.leaf.right{
+right:18px;
+bottom:110px;
+transform: scaleX(-1) rotate(-18deg);
+animation-delay: 0.8s;
+}
+
+@keyframes leafWave{
+0%,100%{ transform: translateY(0) rotate(-22deg); }
+50%{ transform: translateY(-5px) rotate(-26deg); }
+}
+
+.flower{
+position:absolute;
+left:50%;
+top:10px;
+width:200px;
+height:200px;
+transform: translateX(-50%);
+transform-origin: 50% 85%;
+animation: sway 4.4s ease-in-out infinite;
+}
+
+@keyframes sway{
+0%,100%{ transform: translateX(-50%) rotate(-2.2deg); }
+50%{ transform: translateX(-50%) rotate(2.2deg); }
+}
+
+.petal{
+position:absolute;
+left:50%;
+top:50%;
+width:110px;
+height:140px;
+transform: translate(-50%, -50%);
+border-radius: 70% 70% 55% 55%;
+background:
+radial-gradient(circle at 30% 25%, #ffffff 0%, #fff7fb 40%, #f1d7e6 90%);
+filter: drop-shadow(0 16px 18px rgba(0,0,0,0.12));
+animation: petalPulse 3.2s ease-in-out infinite;
+}
+
+.p1{
+animation:
+tulipBloomLeft 1.6s ease forwards,
+petalPulse 3.2s ease-in-out infinite 1.6s;
+}
+.p2{
+animation:
+tulipBloomRight 1.6s ease forwards,
+petalPulse 3.2s ease-in-out infinite 1.6s;
+}
+.p3{
+width:120px;
+height:150px;
+background:
+radial-gradient(circle at 35% 25%, #ffffff 0%, #fffafc 45%, #f2d7e6 92%);
+animation:
+tulipBloomCenter 1.6s ease forwards,
+petalPulse 3.2s ease-in-out infinite 1.6s;
+}
+
+@keyframes tulipBloomLeft{
+0%{ transform: translate(-50%,-50%) rotate(-2deg) translateX(-6px) scaleY(0.95); }
+100%{ transform: translate(-50%,-50%) rotate(-18deg) translateX(-26px) scaleY(1); }
+}
+@keyframes tulipBloomRight{
+0%{ transform: translate(-50%,-50%) rotate(2deg) translateX(6px) scaleY(0.95); }
+100%{ transform: translate(-50%,-50%) rotate(18deg) translateX(26px) scaleY(1); }
+}
+@keyframes tulipBloomCenter{
+0%{ transform: translate(-50%,-50%) rotate(0deg) translateY(10px) scale(0.95); }
+100%{ transform: translate(-50%,-50%) rotate(0deg) translateY(-6px) scale(1); }
+}
+
+.core{
+position:absolute;
+left:50%;
+top:58%;
+width:36px;
+height:36px;
+transform: translate(-50%, -50%);
+border-radius:999px;
+background: radial-gradient(circle at 35% 35%, #ffe8a8, #ffb86b);
+box-shadow: 0 0 20px rgba(255, 170, 90, 0.25);
+animation: coreGlow 2.6s ease-in-out infinite 1.6s;
+opacity:0;
+animation-fill-mode: forwards;
+}
+
+@keyframes coreGlow{
+0%{ transform: translate(-50%,-50%) scale(0.9); opacity:0; }
+100%{ transform: translate(-50%,-50%) scale(1); opacity:1; }
+}
+
+@keyframes petalPulse{
+0%,100%{ filter: drop-shadow(0 16px 18px rgba(0,0,0,0.12)); }
+50%{ filter: drop-shadow(0 18px 24px rgba(255, 120, 180, 0.10)); }
+}
+
+.question{
+margin-top:14px;
+font-size:20px;
+font-weight:900;
+color: rgba(55, 10, 30, 0.92);
+animation: glow 2.6s ease-in-out infinite;
+}
+
+@keyframes glow{
+0%,100%{ transform: scale(1); opacity:0.92; }
+50%{ transform: scale(1.02); opacity:1; }
+}
+
+.buttons{
+margin-top:18px;
+height:64px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:14px;
+flex-wrap:wrap;
+position:relative;
+}
+
+.btn{
+border:0;
+cursor:pointer;
+padding:12px 20px;
+border-radius:999px;
+font-weight:900;
+font-size:14px;
+user-select:none;
+transition: transform 0.12s ease;
+}
+.btn:active{ transform: scale(0.98); }
+
+.yes{
+background: rgba(255, 60, 140, 0.95);
+color:white;
+box-shadow: 0 16px 30px rgba(255, 60, 140, 0.18);
+}
+
+.no{
+background: rgba(255,255,255,0.72);
+color: rgba(60, 10, 30, 0.78);
+border: 1px solid rgba(255, 90, 170, 0.22);
+position:absolute;
+left: 52%;
+top: 12px;
+}
+
+.final{
+margin-top:18px;
+padding:18px 16px;
+border-radius:22px;
+display:none;
+text-align:left;
+
+background: rgba(255,255,255,0.72);
+border: 1px solid rgba(255, 90, 170, 0.18);
+}
+
+.final h2{
+margin:0 0 8px;
+font-family:"Pacifico", cursive;
+font-size:24px;
+color: rgba(60, 10, 35, 0.92);
+}
+
+.final p{
+margin:0;
+font-size:15px;
+line-height:1.6;
+color: rgba(55, 10, 30, 0.78);
+font-weight:600;
+}
+
+.final .name{
+color: rgba(255, 40, 130, 0.95);
+font-weight:900;
+}
+
+.heart{
+position:absolute;
+z-index:1;
+user-select:none;
+animation: floatUp 7s linear infinite;
+filter: drop-shadow(0 8px 10px rgba(0,0,0,0.10));
+}
+
+@keyframes floatUp{
+0%{ transform: translateY(60px) scale(0.8) rotate(0deg); opacity:0; }
+12%{ opacity:0.9; }
+100%{ transform: translateY(-950px) scale(1.35) rotate(18deg); opacity:0; }
+}
+
+.fall-petal{
+position:absolute;
+width:14px;
+height:18px;
+border-radius: 80% 80% 60% 60%;
+background: radial-gradient(circle at 30% 25%, #ffffff, #ffe7f1 70%, #f1c8dd);
+opacity:0.85;
+filter: drop-shadow(0 10px 10px rgba(0,0,0,0.08));
+animation: fall linear infinite;
+z-index:1;
+}
+
+@keyframes fall{
+0%{
+transform: translateY(-60px) translateX(0) rotate(0deg);
+opacity:0;
+}
+10%{ opacity:0.9; }
+100%{
+transform: translateY(110vh) translateX(80px) rotate(220deg);
+opacity:0;
+}
+}
+
+/* sparkle burst */
+.spark{
+position:absolute;
+width:8px;
+height:8px;
+border-radius:999px;
+background: radial-gradient(circle at 30% 30%, #ffffff, #ffd1ea);
+box-shadow: 0 0 18px rgba(255, 110, 180, 0.35);
+z-index:5;
+animation: sparkPop 900ms ease forwards;
+pointer-events:none;
+}
+
+@keyframes sparkPop{
+0%{ transform: translate(0,0) scale(0.7); opacity:0; }
+20%{ opacity:1; }
+100%{ transform: translate(var(--dx), var(--dy)) scale(1.2); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+
+<div class="card">
+<h1 class="title">For you 🤍🌷</h1>
+<div class="sub">A tiny tulip that blooms every time you scan.</div>
+
+<div class="tulip-wrap" id="tulipWrap">
+<div class="flower">
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="core"></div>
+</div>
+
+<div class="stem"></div>
+<div class="leaf left"></div>
+<div class="leaf right"></div>
+</div>
+
+<div class="question">Will you be my Valentine? 💖</div>
+
+<div class="buttons" id="btnArea">
+<button class="btn yes" id="yesBtn">YES 💘</button>
+<button class="btn no" id="noBtn">NO 🙃</button>
+</div>
+
+<div class="final" id="finalMsg">
+<h2>AAAAA 😭💖</h2>
+<p>
+i wanna be your valentine not only for this year but for each and every year from now,
+i love you <span class="name">Aarchuu</span> you made me the happiest person alive 🌷✨
+</p>
+</div>
+</div>
+
+<script>
+const emojis = ["💖","💘","💗","💕","🌸","💞","✨","🤍"];
+
+function spawnHeart() {
+const h = document.createElement("div");
+h.className = "heart";
+h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+h.style.left = Math.random() * 100 + "vw";
+h.style.top = (75 + Math.random() * 25) + "vh";
+h.style.fontSize = (16 + Math.random() * 22) + "px";
+h.style.animationDuration = (5 + Math.random() * 6) + "s";
+h.style.opacity = 0.35 + Math.random() * 0.65;
+document.body.appendChild(h);
+setTimeout(() => h.remove(), 12000);
+}
+
+for (let i = 0; i < 18; i++) spawnHeart();
+
+document.body.addEventListener("click", () => {
+for (let i = 0; i < 10; i++) spawnHeart();
+});
+
+function spawnFallingPetal() {
+const p = document.createElement("div");
+p.className = "fall-petal";
+p.style.left = Math.random() * 100 + "vw";
+p.style.animationDuration = (6 + Math.random() * 6) + "s";
+p.style.animationDelay = (Math.random() * 3) + "s";
+p.style.opacity = 0.35 + Math.random() * 0.6;
+document.body.appendChild(p);
+setTimeout(() => p.remove(), 15000);
+}
+
+for (let i = 0; i < 18; i++) spawnFallingPetal();
+setInterval(() => spawnFallingPetal(), 700);
+
+// Spark burst near tulip
+function sparkleBurst() {
+const tulip = document.getElementById("tulipWrap");
+const rect = tulip.getBoundingClientRect();
+
+for (let i = 0; i < 18; i++) {
+const s = document.createElement("div");
+s.className = "spark";
+
+const x = rect.left + rect.width / 2;
+const y = rect.top + rect.height * 0.25;
+
+s.style.left = x + "px";
+s.style.top = y + "px";
+
+const dx = (Math.random() * 180 - 90) + "px";
+const dy = (Math.random() * 160 - 80) + "px";
+s.style.setProperty("--dx", dx);
+s.style.setProperty("--dy", dy);
+
+document.body.appendChild(s);
+setTimeout(() => s.remove(), 1100);
+}
+}
+
+const yesBtn = document.getElementById("yesBtn");
+const finalMsg = document.getElementById("finalMsg");
+const noBtn = document.getElementById("noBtn");
+const tulipWrap = document.getElementById("tulipWrap");
+
+yesBtn.addEventListener("click", (e) => {
+e.stopPropagation();
+
+for (let i = 0; i < 50; i++) spawnHeart();
+sparkleBurst();
+
+tulipWrap.classList.remove("tulip-glow");
+void tulipWrap.offsetWidth; // restart animation
+tulipWrap.classList.add("tulip-glow");
+
+finalMsg.style.display = "block";
+yesBtn.textContent = "YES 💍";
+});
+
+// NO runs away when cursor comes close
+const area = document.getElementById("btnArea");
+
+function initNo(){
+noBtn.style.left = "56%";
+noBtn.style.top = "12px";
+}
+window.addEventListener("load", initNo);
+
+function moveNoAway(){
+if (finalMsg.style.display === "block") return;
+
+const rect = area.getBoundingClientRect();
+const maxX = rect.width - noBtn.offsetWidth - 6;
+const maxY = rect.height - noBtn.offsetHeight - 6;
+
+const x = Math.random() * maxX;
+const y = Math.random() * maxY;
+
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
+}
+
+area.addEventListener("mousemove", (e) => {
+if (finalMsg.style.display === "block") return;
+
+const rect = noBtn.getBoundingClientRect();
+const mx = e.clientX;
+const my = e.clientY;
+
+const cx = rect.left + rect.width / 2;
+const cy = rect.top + rect.height / 2;
+
+const dx = mx - cx;
+const dy = my - cy;
+const dist = Math.sqrt(dx*dx + dy*dy);
+
+if (dist < 95) moveNoAway();
+});
+
+noBtn.addEventListener("mouseenter", moveNoAway);
+noBtn.addEventListener("touchstart", moveNoAway);
+</script>
+</body>
+</html>
